@@ -29,5 +29,6 @@
     <string name="lbl_forgot_password">Forgot password?</string>
     <string name="prompt_password">Enter password?</string>
     <string name="forgot_password_msg">Please enter your email address so that we can send a password reset.</string>
+    <string name="passwd_hint">password</string>
 </resources>
 
