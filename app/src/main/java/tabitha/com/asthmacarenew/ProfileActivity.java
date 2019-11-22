@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -20,6 +21,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private TextView txtDetails;
+    private ProgressBar progressBar;
     private EditText inputName, inputEmail;
     private Button btnSave;
     private DatabaseReference mFirebaseDatabase;
@@ -39,7 +41,10 @@ public class ProfileActivity extends AppCompatActivity {
         txtDetails = (TextView) findViewById(R.id.txt_user);
         inputName = (EditText) findViewById(R.id.name);
         inputEmail = (EditText) findViewById(R.id.email);
-        btnSave = (Button) findViewById(R.id.btn_save);
+        btnSave = (Button) findViewById(R.id.btn_sav);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+
+
 
         mFirebaseInstance = FirebaseDatabase.getInstance();
 
@@ -85,6 +90,11 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
         toggleButton();
+
+        if (progressBar != null) {
+            progressBar.setVisibility(View.GONE);
+        }
+        return;
     }
 
     // Changing button text

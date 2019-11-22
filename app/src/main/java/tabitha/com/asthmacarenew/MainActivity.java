@@ -6,6 +6,9 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,7 +22,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button signOut, profile;
+
     private ProgressBar progressBar;
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
@@ -28,6 +31,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //getting the toolbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        //setting the title
+        toolbar.setTitle("My Toolbar");
+
+        //placing toolbar in place of actionbar
+        setSupportActionBar(toolbar);
 
 
         //get firebase auth instance
@@ -50,27 +61,15 @@ public class MainActivity extends AppCompatActivity {
         };
 
 
-        signOut = (Button) findViewById(R.id.sign_out);
-        profile = (Button) findViewById(R.id.profile1);
+
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         if (progressBar != null) {
-            progressBar.setVisibility(View.GONE);
-        }
-        signOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                signOut();
-            }
-        });
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
-            }
-        });
-
+        progressBar.setVisibility(View.GONE);
     }
+    return;
+
+}
 
 
     //sign out method
@@ -97,4 +96,33 @@ public class MainActivity extends AppCompatActivity {
             auth.removeAuthStateListener(authListener);
         }
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()){
+            case R.id.menuAbout:
+                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+                finish();
+                break;
+
+            case R.id.menuSettings:
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                finish();
+                break;
+
+            case R.id.menuLogout:
+                signOut();
+                finish();
+                break;
+
+        }
+        return true;
+    }
+
 }
