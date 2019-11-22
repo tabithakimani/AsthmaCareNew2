@@ -30,7 +30,6 @@
             android:inputType="textEmailAddress"
             android:maxLines="1"
             android:singleLine="true"
-            android:autofillHints="@string/email"
             android:textColor="@android:color/white" />
 
 
@@ -45,7 +44,6 @@
             android:imeOptions="actionUnspecified"
             android:inputType="textPassword"
             android:maxLines="1"
-            android:autofillHints="@string/passwd_hint"
             android:singleLine="true"
             android:textColor="@android:color/white" />
 

@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button signOut;
+    private Button signOut, profile;
     private ProgressBar progressBar;
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         signOut = (Button) findViewById(R.id.sign_out);
+        profile = (Button) findViewById(R.id.profile1);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         if (progressBar != null) {
@@ -62,8 +63,15 @@ public class MainActivity extends AppCompatActivity {
                 signOut();
             }
         });
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+            }
+        });
 
     }
+
 
     //sign out method
     public void signOut() {

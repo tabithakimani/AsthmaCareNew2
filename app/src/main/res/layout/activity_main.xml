@@ -22,6 +22,15 @@
             android:text="@string/btn_sign_out"
             android:textColor="@color/colorAccent"
             android:textStyle="bold" />
+        <Button
+            android:id="@+id/profile1"
+            style="?android:textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="@string/view_my_profile"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="30dp"
