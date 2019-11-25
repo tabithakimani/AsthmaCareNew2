@@ -24,7 +24,6 @@
         <!-- android:enabled="false" -->
         <!-- android:exported="false" /> -->
         <activity android:name=".LungActivity" />
-        <activity android:name=".ProfileActivity" />
         <activity
             android:name=".ResetPasswordActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

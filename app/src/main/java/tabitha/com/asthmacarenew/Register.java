@@ -24,7 +24,7 @@ import java.util.HashMap;
 
 public class Register extends AppCompatActivity {
 
-    private Button btn_register;
+    private Button btn_register, btnSignIn;
     private EditText inputName,inputEmail,inputPassword;
     private ProgressDialog loadingBar;
 
@@ -32,9 +32,15 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
+        btnSignIn =  findViewById(R.id.sign_in_button);
         InitializedMethods();
 
+        btnSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Register.this, Login.class));
+            }
+        });
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
