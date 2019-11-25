@@ -50,6 +50,19 @@
             android:textColor="@android:color/white" />
 
 
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:hint="Name"
+            android:imeOptions="actionUnspecified"
+            android:inputType="text"
+            android:textColorHint="@android:color/white"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@android:color/white" />
+
 
         <Button
             android:id="@+id/sign_up_button"

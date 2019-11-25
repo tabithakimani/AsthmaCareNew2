@@ -41,11 +41,38 @@ public class ProfileActivity extends AppCompatActivity {
         txtDetails = (TextView) findViewById(R.id.txt_user);
         inputName = (EditText) findViewById(R.id.name);
         inputEmail = (EditText) findViewById(R.id.email);
-        btnSave = (Button) findViewById(R.id.btn_sav);
+        btnSave =  findViewById(R.id.btn_sav);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String name = inputName.getText().toString();
+                String email = inputEmail.getText().toString();
 
+                // Check for already existed userId
+                if (TextUtils.isEmpty(userId)) {
+                    createUser(name, email);
+                } else {
+                    updateUser(name, email);
+                }
+            }
+        });
+        // Save / update the user
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String name = inputName.getText().toString();
+                String email = inputEmail.getText().toString();
 
+                // Check for already existed userId
+                if (TextUtils.isEmpty(userId)) {
+                    createUser(name, email);
+                } else {
+                    updateUser(name, email);
+                }
+            }
+        });
         mFirebaseInstance = FirebaseDatabase.getInstance();
 
         // get reference to 'users' node
@@ -73,21 +100,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        // Save / update the user
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String name = inputName.getText().toString();
-                String email = inputEmail.getText().toString();
 
-                // Check for already existed userId
-                if (TextUtils.isEmpty(userId)) {
-                    createUser(name, email);
-                } else {
-                    updateUser(name, email);
-                }
-            }
-        });
 
         toggleButton();
 
